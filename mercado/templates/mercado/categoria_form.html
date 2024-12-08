@@ -1,0 +1,15 @@
+{% extends 'mercado/base.html' %}
+
+{% block content %}
+<h1>Nova Categoria</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+    
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao"></textarea>
+    
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}

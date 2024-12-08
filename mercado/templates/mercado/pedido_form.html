@@ -1,0 +1,16 @@
+{% extends 'mercado/base.html' %}
+
+{% block content %}
+<h1>Novo Pedido</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="cliente">Cliente:</label>
+    <select id="cliente" name="cliente">
+        {% for cliente in clientes %}
+        <option value="{{ cliente.id }}">{{ cliente.usuario.username }}</option>
+        {% endfor %}
+    </select>
+    
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}

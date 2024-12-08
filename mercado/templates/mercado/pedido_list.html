@@ -1,0 +1,26 @@
+{% extends 'mercado/base.html' %}
+
+{% block content %}
+<h1>Pedidos</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Data do Pedido</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pedido in pedidos %}
+        <tr>
+            <td>{{ pedido.id }}</td>
+            <td>{{ pedido.cliente.usuario.username }}</td>
+            <td>{{ pedido.data_pedido }}</td>
+            <td>R$ {{ pedido.total }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'pedido_create' %}">Criar Pedido</a>
+{% endblock %}

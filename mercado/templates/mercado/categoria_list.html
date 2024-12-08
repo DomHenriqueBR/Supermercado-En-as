@@ -1,0 +1,11 @@
+{% extends 'mercado/base.html' %}
+
+{% block content %}
+<h1>Categorias</h1>
+<ul>
+    {% for categoria in categorias %}
+    <li>{{ categoria.nome }} - {{ categoria.descricao }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'categoria_create' %}">Adicionar Categoria</a>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'mercado/base.html' %}
+
+{% block content %}
+<h1>Itens do Pedido</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Pedido</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in itens %}
+        <tr>
+            <td>Pedido {{ item.pedido.id }}</td>
+            <td>{{ item.produto.nome }}</td>
+            <td>{{ item.quantidade }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'itempedido_create' %}">Adicionar Item</a>
+{% endblock %}

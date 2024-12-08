@@ -1,0 +1,11 @@
+{% extends 'mercado/base.html' %}
+
+{% block content %}
+<h1>Clientes</h1>
+<ul>
+    {% for cliente in clientes %}
+    <li>{{ cliente.usuario.username }} - {{ cliente.telefone }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'cliente_create' %}">Adicionar Cliente</a>
+{% endblock %}
