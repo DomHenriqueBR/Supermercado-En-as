@@ -66,16 +66,24 @@ def cliente_create(request):
     return render(request, 'mercado/cliente_create.html')
 
 
+from django.shortcuts import render, redirect
+from .models import Produto, Categoria
+
 def produto_create(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
         preco = request.POST.get('preco')
-        categorias = request.POST.getlist('categorias')
-        produto = Produto.objects.create(nome=nome, preco=preco)
-        produto.categorias.set(categorias)
+        estoque = request.POST.get('estoque')
+        categorias_ids = request.POST.getlist('categorias')
+        produto = Produto.objects.create(nome=nome, preco=preco, estoque=estoque)
+        if categorias_ids:
+            categorias = Categoria.objects.filter(id__in=categorias_ids)
+            produto.categorias.set(categorias) 
         return redirect('produto_list') 
     categorias = Categoria.objects.all()
     return render(request, 'mercado/produto_create.html', {'categorias': categorias})
+
+
 
 def pedido_create(request):
     if request.method == 'POST':
