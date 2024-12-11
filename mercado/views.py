@@ -59,7 +59,6 @@ def cliente_create(request):
             return render(request, 'mercado/cliente_create.html', {
                 'error': 'Nome de usuário já existe.'
             })
-        # Cria o usuário e associa ao cliente
         usuario = User.objects.create_user(username=username, password=password)
         Cliente.objects.create(usuario=usuario, telefone=telefone)
         return redirect('cliente_list')
