@@ -1,0 +1,22 @@
+{% extends 'mercado/base.html' %}
+
+{% block content %}
+<h1>Adicionar Cliente</h1>
+<form method="POST">
+    {% csrf_token %}
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <label for="username">Nome de Usuário:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Senha:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" name="telefone" required>
+
+    <button type="submit">Salvar</button>
+</form>
+<a href="{% url 'cliente_list' %}">Voltar para Lista de Clientes</a>
+{% endblock %}

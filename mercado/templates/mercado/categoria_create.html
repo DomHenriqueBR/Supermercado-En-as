@@ -1,0 +1,12 @@
+{% extends 'mercado/base.html' %}
+
+{% block content %}
+<h1>Adicionar Categoria</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="nome">Nome da Categoria:</label>
+    <input type="text" id="nome" name="nome" required>
+    <button type="submit">Salvar</button>
+</form>
+<a href="{% url 'categoria_list' %}">Voltar para Lista de Categorias</a>
+{% endblock %}
