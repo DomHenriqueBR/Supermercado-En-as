@@ -29,4 +29,8 @@ urlpatterns = [
     path('pedidos/', views.pedido_list, name='pedido_list'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('categorias/create/', views.categoria_create, name='categoria_create'),
+    path('clientes/create/', views.cliente_create, name='cliente_create'),
+    path('pedidos/create/', views.pedido_create, name='pedido_create'),
+    path('produtos/create/', views.produto_create, name='produto_create'),
 ]
